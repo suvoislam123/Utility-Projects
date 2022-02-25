@@ -11,9 +11,13 @@ let search= async () =>{
         // fetch(url)
         // .then(response => response.json())
         // .then(items => placeMent(items.meals))
-        const res = await fetch(url);
-        const items = await res.json();
-        placeMent(items.meals);
+        try{
+            const res = await fetch(url);
+            const items = await res.json();
+            placeMent(items.meals);
+        }catch(error){
+            console.log(error);
+        }
     }
 }
 let placeMent = (data)=>{
